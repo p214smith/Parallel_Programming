@@ -1,0 +1,13 @@
+# Load CUDA using the following command
+# module load cuda
+#
+CC = nvcc
+CFLAGS = -O3 -arch=compute_35 -code=sm_35
+NVCCFLAGS = -O3 -arch=compute_35 -code=sm_35
+LIBS = 
+
+hw_4_fft: hw_4_fft.o
+	$(CC) -o $@ $(LIBS) hw_4_fft.o
+
+hw_4_fft.o: hw_4_fft.cu
+	$(CC) -c $(CFLAGS) hw_4_fft.cu
